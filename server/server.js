@@ -36,7 +36,7 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
-  console.log(`Example app listening at Port: ${PORT}`.yellow.bold);
+  console.log(`App listening at Port: ${PORT}`.yellow.bold);
 });
 
 // Handle unhandled promise rejection
