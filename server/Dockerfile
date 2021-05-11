@@ -6,7 +6,7 @@ WORKDIR /usr/src/app/server
 # where available (npm@5+)
 COPY package*.json ./
 
-RUN npm install
+RUN npm install --legacy-peer-deps
 
 COPY ./ ./
 
