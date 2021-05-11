@@ -1,0 +1,35 @@
+version: "3"
+services:
+  server:
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./server
+    volumes:
+      - /usr/src/app/server/node_modules
+      - ./server:/usr/src/app/server
+    ports:
+      - "5000:5000"
+
+  client:
+    stdin_open: true
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./client
+    volumes:
+      - /usr/src/app/client/node_modules
+      - ./client:/usr/src/app/client
+    ports:
+      - "3000:3000"
+    environment:
+      -
+
+  mongodb:
+    restart: always
+    image: mongo
+    container_name: mongodb
+    volumes:
+      - ./database:/usr/src/data/db
+    ports:
+      - 27017:27017
